@@ -63,7 +63,7 @@ builder.Services.Configure<IdentityOptions>(options =>
 {
 
 	// Lockout settings
-	options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(80);
+	options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(0.1);
 	options.Lockout.MaxFailedAccessAttempts = 3;
 	options.Lockout.AllowedForNewUsers = true;
 
