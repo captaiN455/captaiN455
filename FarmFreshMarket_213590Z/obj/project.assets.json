@@ -6672,11 +6672,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "Z:\\AS\\FarmFreshMarket\\FarmFreshMarket_213590Z\\FarmFreshMarket_213590Z.csproj",
+      "projectUniqueName": "Z:\\AS\\FarmFreshMarket\\FarmFreshMarket_213590Z\\captaiN455\\FarmFreshMarket_213590Z\\FarmFreshMarket_213590Z.csproj",
       "projectName": "FarmFreshMarket_213590Z",
-      "projectPath": "Z:\\AS\\FarmFreshMarket\\FarmFreshMarket_213590Z\\FarmFreshMarket_213590Z.csproj",
+      "projectPath": "Z:\\AS\\FarmFreshMarket\\FarmFreshMarket_213590Z\\captaiN455\\FarmFreshMarket_213590Z\\FarmFreshMarket_213590Z.csproj",
       "packagesPath": "D:\\Users\\213590z\\.nuget\\packages\\",
-      "outputPath": "Z:\\AS\\FarmFreshMarket\\FarmFreshMarket_213590Z\\obj\\",
+      "outputPath": "Z:\\AS\\FarmFreshMarket\\FarmFreshMarket_213590Z\\captaiN455\\FarmFreshMarket_213590Z\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

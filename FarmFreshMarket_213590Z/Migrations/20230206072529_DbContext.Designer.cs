@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FarmFreshMarket_213590Z.Migrations
 {
     [DbContext(typeof(AuthDbContext))]
-    [Migration("20230206012148_DbContext")]
+    [Migration("20230206072529_DbContext")]
     partial class DbContext
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,7 +24,7 @@ namespace FarmFreshMarket_213590Z.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("FarmFreshMarket_213590Z.Models.User", b =>
+            modelBuilder.Entity("FarmFreshMarket_213590Z.Models.AuthUser", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
@@ -260,7 +260,7 @@ namespace FarmFreshMarket_213590Z.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("FarmFreshMarket_213590Z.Models.User", null)
+                    b.HasOne("FarmFreshMarket_213590Z.Models.AuthUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -269,7 +269,7 @@ namespace FarmFreshMarket_213590Z.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("FarmFreshMarket_213590Z.Models.User", null)
+                    b.HasOne("FarmFreshMarket_213590Z.Models.AuthUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -284,7 +284,7 @@ namespace FarmFreshMarket_213590Z.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("FarmFreshMarket_213590Z.Models.User", null)
+                    b.HasOne("FarmFreshMarket_213590Z.Models.AuthUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -293,7 +293,7 @@ namespace FarmFreshMarket_213590Z.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("FarmFreshMarket_213590Z.Models.User", null)
+                    b.HasOne("FarmFreshMarket_213590Z.Models.AuthUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)

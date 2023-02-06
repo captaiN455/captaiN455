@@ -94,7 +94,7 @@ namespace FarmFreshMarket_213590Z.Pages
                     //protect data
                     var protectedCreditCardNumber = _protector.Protect(RModel.CreditCardNumber);
                     var protectedUserName = _protector.Protect(System.Web.HttpUtility.HtmlEncode(EmailAddress));
-                    var protectedPassword = _protector.Protect(System.Web.HttpUtility.HtmlEncode(RModel.Password));
+                    var protectedPassword = _protector.Protect(System.Web.HttpUtility.HtmlEncode(Password));
                     var protectedFullName = _protector.Protect(System.Web.HttpUtility.HtmlEncode(RModel.FullName));
                     var protectedGender = _protector.Protect(System.Web.HttpUtility.HtmlEncode(RModel.Gender));
                     var protectedEmail = _protector.Protect(System.Web.HttpUtility.HtmlEncode(EmailAddress));
@@ -107,15 +107,15 @@ namespace FarmFreshMarket_213590Z.Pages
                     //pass data to database
                     var user = new AuthUser
                     {
-                        UserName = protectedUserName,
+                        UserName = EmailAddress,
                         Photo = ImageURL,
-                        FullName = protectedFullName,
-                        Gender = protectedGender,
-                        Email = protectedEmail,
-                        PhoneNumber = protectedPhoneNo,
-                        DeliveryAddress = protectedAddress,
+                        FullName = RModel.FullName,
+                        Gender = RModel.Gender,
+                        Email = EmailAddress,
+                        PhoneNumber = "+65 " + RModel.PhoneNumber,
+                        DeliveryAddress = RModel.DeliveryAddress,
                         CreditCardNumber = protectedCreditCardNumber,
-                        AboutMe = protectedAboutMe
+                        AboutMe = RModel.AboutMe
                     };
 
                     //check duplicate email
