@@ -1,0 +1,37 @@
+﻿@page
+@using FarmFreshMarket_213590Z.Models
+@using Microsoft.AspNetCore.Identity
+@model FarmFreshMarket_213590Z.Pages.UserProfileModel
+@inject IHttpContextAccessor contxt
+@inject SignInManager<AuthUser> SignInManager
+@{
+
+}
+
+<div class="text-center">
+    <h1 class="alert-dark">User Profile</h1>
+</div>
+
+@{
+    if (SignInManager.IsSignedIn(User))
+    {
+               
+                    <div class="card">
+                <img class="card-img-top" style="width: 50%; height: 50%" src="@Model.retrieveuser.Photo" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">@Model.retrieveuser.FullName</h5>
+                            <p class="card-text">About Me: @Model.retrieveuser.AboutMe</p>
+                            <div class="card-body">
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">Gender: @Model.retrieveuser.Gender</li>
+                                    <li class="list-group-item">Email: @Model.retrieveuser.Email</li>
+                                    <li class="list-group-item">Credit Card Number: @Model.retrieveuser.CreditCardNumber</li>
+                                    
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+    }
+    
+}
+
