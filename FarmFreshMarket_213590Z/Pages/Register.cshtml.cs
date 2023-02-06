@@ -17,6 +17,7 @@ namespace FarmFreshMarket_213590Z.Pages
         private SignInManager<AuthUser> signInManager { get; }
 
         private IWebHostEnvironment _environment;
+        private RoleManager<IdentityRole> roleManager { get; }
 
         private readonly IDataProtector _protector;
         private readonly IHttpContextAccessor _contxt;
@@ -47,13 +48,16 @@ namespace FarmFreshMarket_213590Z.Pages
         [BindProperty]
         public string Register { get; set; }
 
-        public RegisterModel(IHttpContextAccessor httpContextAccessor, IDataProtectionProvider provider, UserManager<AuthUser> userManager, SignInManager<AuthUser> signInManager, IWebHostEnvironment environment)
+        public RegisterModel(IHttpContextAccessor httpContextAccessor, 
+            IDataProtectionProvider provider, 
+            UserManager<AuthUser> userManager, SignInManager<AuthUser> signInManager, IWebHostEnvironment environment, RoleManager<IdentityRole> roleManager)
         {
             this.userManager = userManager;
             this.signInManager = signInManager;
             _environment = environment;
             _contxt = httpContextAccessor;
             _protector = provider.CreateProtector("credit_card_protector");
+            this.roleManager = roleManager;
             //_resetPasswordService = resetPasswordService;
 
         }
@@ -130,6 +134,11 @@ namespace FarmFreshMarket_213590Z.Pages
                     var result = await userManager.CreateAsync(user, Password);
                     if (result.Succeeded)
                     {
+                        await roleManager.CreateAsync(new IdentityRole("Admin"));
+                        if(user.Email == "ZHIYI@gmail.com")
+                        {
+                            await userManager.AddToRoleAsync(user, "Admin");
+                        }
                         return RedirectToPage("Login");
                     }
 

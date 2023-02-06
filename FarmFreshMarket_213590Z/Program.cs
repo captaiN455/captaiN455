@@ -50,13 +50,14 @@ builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddSession(options =>
 {
-    options.IdleTimeout = TimeSpan.FromSeconds(5);
+    options.IdleTimeout = TimeSpan.FromSeconds(100);
 });
 builder.Services.ConfigureApplicationCookie(options =>
 {
 	options.Cookie.Name = "AspNetCore.Identity.Application";
 	options.ExpireTimeSpan = TimeSpan.FromSeconds(100);
 	options.SlidingExpiration = true;
+	options.AccessDeniedPath = "/Errors/Error401";
 });
 builder.Services.Configure<IdentityOptions>(options =>
 {
